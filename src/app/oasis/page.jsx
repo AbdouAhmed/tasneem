@@ -5,75 +5,186 @@ export default function OasisPage() {
       {/* Page Header */}
       <section className="section" style={{ paddingTop: '120px', paddingBottom: '40px' }}>
         <h1 className="section-title">Discover the Region</h1>
-        <p className="section-subtitle">A historical catalogue of Egypt featuring ruins from the Pharaohs, Persians, Romans, and Copts.</p>
+        <p className="section-subtitle">
+          A living historical catalogue of Egypt, echoing the enduring legacies of Pharaohs, Persians, Romans, and Copts[cite: 5].
+        </p>
       </section>
 
-      {/* THE WESTERN DESERT */}
-      <section className="section" style={{ paddingTop: '20px', paddingBottom: '40px' }}>
-        <div style={{ maxWidth: '900px', margin: '0 auto', textAlign: 'left' }}>
-          <h2 style={{ fontSize: '2.5rem', marginBottom: '20px' }}>The Western Desert</h2>
-          <p style={{ lineHeight: '1.8', marginBottom: '20px' }}>
-            The Western Desert covers about two-thirds of Egypt's land surface, spanning approximately 262,800 square miles (680,651 sq. km). Stretching from the Nile to the Libyan border, and from the Mediterranean down to Sudan, it houses only a tiny fraction of Egypt's population. Outside the oases—which are the remnants of a prehistoric savannah—the population consists primarily of small groups of nomadic and semi-nomadic herdsmen. 
-          </p>
+      {/* THE WESTERN DESERT & EGYPT MAP */}
+      <section className="section" style={{ paddingTop: '20px', paddingBottom: '60px' }}>
+        <div style={{ maxWidth: '1000px', margin: '0 auto', display: 'flex', gap: '40px', alignItems: 'center', flexWrap: 'wrap' }}>
+          <div style={{ flex: '1 1 400px', textAlign: 'left' }}>
+            <h2 style={{ fontSize: '2.5rem', marginBottom: '20px' }}>The Western Desert</h2>
+            <p style={{ lineHeight: '1.8' }}>
+              Step into a vast, untamed frontier. Spanning an incredible two-thirds of Egypt's land surface, this magnificent expanse stretches from the Nile to the Libyan border, and from the Mediterranean down to Sudan[cite: 5]. Though it houses only a tiny fraction of the nation's population, it is the proud home of nomadic and semi-nomadic herdsmen[cite: 5]. The scattered oases you will encounter are the lush, green remnants of a prehistoric savannah[cite: 5].
+            </p>
+          </div>
+          <div style={{ flex: '1 1 400px', textAlign: 'center' }}>
+            <img 
+              src="/images/egypt-map.jpg" 
+              alt="Egypt Route Map" 
+              style={{ width: '100%', maxHeight: '400px', objectFit: 'contain', borderRadius: '12px', backgroundColor: '#FFF', padding: '10px', boxShadow: '0 10px 30px rgba(0,0,0,0.08)' }} 
+            />
+          </div>
         </div>
       </section>
 
       {/* BAHRIYA OASIS */}
-      <section className="section" style={{ backgroundColor: '#F4EFE6', padding: '60px 20px' }}>
-        <div style={{ maxWidth: '900px', margin: '0 auto', textAlign: 'left' }}>
-          <h2 style={{ fontSize: '2.5rem', marginBottom: '20px' }}>Bahriya Oasis</h2>
-          <p style={{ lineHeight: '1.8', marginBottom: '20px' }}>
-            Located 340km (210 miles) southwest of Cairo, the Bahariya Oasis sits in a depression covering over 2,000 square kilometers. It is completely surrounded by high steep slopes and black hills made of ferruginous quartzite and dolorite, featuring basalt columns formed during the Cretaceous Period. At 128 meters above sea level, it is the highest point of all the western desert oases. 
+      <section className="section" style={{ backgroundColor: '#F4EFE6', padding: '80px 20px' }}>
+        <div style={{ maxWidth: '1000px', margin: '0 auto', display: 'flex', gap: '40px', alignItems: 'center', flexDirection: 'row-reverse', flexWrap: 'wrap' }}>
+          <div style={{ flex: '1 1 400px', textAlign: 'left' }}>
+            <h2 style={{ fontSize: '2.5rem', marginBottom: '20px' }}>Bahariya Oasis</h2>
+            <p style={{ lineHeight: '1.8', marginBottom: '15px' }}>
+              Discover the crown jewel of the desert, located 340km southwest of Cairo[cite: 5]. Nestled within a massive 2,000-square-kilometer depression, Bahariya is completely surrounded by towering black hills and ancient basalt columns forged during the Cretaceous Period[cite: 5]. Standing at 128 meters above sea level, it is the highest of all the western oases[cite: 5].
+            </p>
+            <p style={{ lineHeight: '1.8' }}>
+              Once the floor of an immense ocean, this lush sanctuary has been inhabited for over 10,000 years and is fed by restorative, medicinal thermal springs in the heart of Bawiti village[cite: 5].
+            </p>
+          </div>
+          <img 
+            src="/images/bahriya.jpg" 
+            alt="Bahariya Oasis" 
+            style={{ flex: '1 1 400px', width: '100%', height: '350px', objectFit: 'cover', borderRadius: '12px', boxShadow: '0 10px 30px rgba(0,0,0,0.1)' }} 
+          />
+        </div>
+      </section>
+
+      {/* PEOPLE, CULTURE, AND MODERNITY */}
+      <section className="section" style={{ padding: '60px 20px' }}>
+        <div style={{ maxWidth: '800px', margin: '0 auto', textAlign: 'center' }}>
+          <h2 style={{ fontSize: '2.5rem', marginBottom: '20px' }}>People, Culture & Modernity</h2>
+          <p style={{ lineHeight: '1.8' }}>
+            Connect with the authentic soul of the oasis. The local Wahati people proudly carry a rich lineage, descending from ancient inhabitants, Libyan Bedouin tribes, and Nile Valley settlers[cite: 5]. While time-honored agriculture remains vital, the community thrives today through a blend of the nearby iron ore industry and a vibrant, international tourism sector guided by local experts[cite: 5].
           </p>
-          <p style={{ lineHeight: '1.8', marginBottom: '40px' }}>
-            Once the bottom of an immense ocean, the oasis has been inhabited for at least 10,000 years. Water is provided by many springs, including a famous thermal spring in the Bedouin village of Bawiti known for its medicinal and restorative properties.
+        </div>
+      </section>
+
+      {/* ANTIQUITIES SITES & TOMBS */}
+      <section className="section" style={{ backgroundColor: '#F4EFE6', padding: '80px 20px' }}>
+        <div style={{ maxWidth: '1000px', margin: '0 auto', textAlign: 'left' }}>
+          <h2 style={{ fontSize: '2.5rem', marginBottom: '20px', textAlign: 'center' }}>Legends of Antiquity</h2>
+          <p style={{ lineHeight: '1.8', marginBottom: '40px', textAlign: 'center', maxWidth: '800px', margin: '0 auto 40px auto' }}>
+            Unearth the secrets of the past. From gilded relics to vibrantly painted resting places, the oasis is a treasure trove of ancient Egyptian and Roman history[cite: 5].
           </p>
 
-          {/* Sub: People, Culture and Modernity */}
-          <h3 style={{ fontSize: '1.8rem', marginTop: '30px', marginBottom: '15px' }}>People, Culture and Modernity</h3>
-          <p style={{ lineHeight: '1.8', marginBottom: '20px' }}>
-            The locals, known as the Wahati people, are descendants of ancient inhabitants, Libyan Bedouin tribes, and Nile Valley settlers. While agriculture remains vital, modern income sources include the nearby iron ore industry and a growing tourism sector led by Wahati and foreign guides. 
-          </p>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '40px' }}>
+            
+            {/* Antiquities Sites */}
+            <div style={{ backgroundColor: '#FFF', padding: '30px', borderRadius: '12px', boxShadow: '0 5px 15px rgba(0,0,0,0.05)' }}>
+              <img 
+                src="/images/antiquities-sites.jpg" 
+                alt="Antiquities Sites" 
+                style={{ width: '100%', height: '260px', objectFit: 'cover', borderRadius: '8px', marginBottom: '20px' }} 
+              />
+              <h3 style={{ fontSize: '1.5rem', marginBottom: '15px' }}>Valley of Golden Mummies</h3>
+              <p style={{ lineHeight: '1.7' }}>
+                Brought to light in 1999 by Zahi Hawass, this sprawling necropolis features Roman-period mummies beautifully adorned with gypsum masks and a thin layer of gold[cite: 5]. Eleven of these well-preserved mummies are currently on display at the local museum[cite: 5].
+              </p>
+            </div>
 
-          {/* Sub: Antiquities Sites */}
-          <h3 style={{ fontSize: '1.8rem', marginTop: '30px', marginBottom: '15px' }}>Antiquities Sites</h3>
-          <p style={{ lineHeight: '1.8', marginBottom: '20px' }}>
-            Tourism surged after 1999 when Zahi Hawass discovered the 'Valley of Golden Mummies', the largest cache of its kind featuring mummies covered in a thin layer of gold and gypsum masks. Eleven well-preserved Roman-period mummies are displayed at the local museum. Visitors can also explore the 26th Dynasty Temple of Ain el-Muftella with its four carved desert chapels, and the village of El Haiz, which contains ruins of a Roman Fortress, a Roman Palace, and an ancient Wine Factory.
-          </p>
+            {/* The Ancient Tombs */}
+            <div style={{ backgroundColor: '#FFF', padding: '30px', borderRadius: '12px', boxShadow: '0 5px 15px rgba(0,0,0,0.05)' }}>
+              <img 
+                src="/images/ancient-tombs.jpg" 
+                alt="Ancient Tomb Wall Relief" 
+                style={{ width: '100%', height: '260px', objectFit: 'cover', borderRadius: '8px', marginBottom: '20px' }} 
+              />
+              <h3 style={{ fontSize: '1.5rem', marginBottom: '15px' }}>The Ancient Tombs</h3>
+              <p style={{ lineHeight: '1.7' }}>
+                Descend into the 26th Dynasty tombs at Qasr Selim belonging to wealthy merchants Zed-Amun-ef-ankh and Bannentiu[cite: 5]. These publicly accessible resting places feature brilliantly preserved wall paintings depicting funeral processions and the Four Sons of Horus[cite: 5].
+              </p>
+            </div>
 
-          {/* Sub: The Ancient Tombs */}
-          <h3 style={{ fontSize: '1.8rem', marginTop: '30px', marginBottom: '15px' }}>The Ancient Tombs</h3>
-          <p style={{ lineHeight: '1.8', marginBottom: '20px' }}>
-            The two 26th Dynasty tombs at Qasr Selim belong to wealthy merchants Zed-Amun-ef-ankh and his son Bannentiu, who lived during the reign of Ahmose II. These richly decorated, publicly accessible tombs feature scenes of funeral processions and the Four Sons of Horus. Additionally, the 3,000-year-old Tomb of Amenhotep Huy (18th Dynasty) represents the oldest grave found in the oasis.
-          </p>
+          </div>
+        </div>
+      </section>
 
-          {/* Sub: Gebel Maghrafa & Gebel Al Ingleez */}
-          <h3 style={{ fontSize: '1.8rem', marginTop: '30px', marginBottom: '15px' }}>Gebel Maghrafa & Gebel Al Ingleez</h3>
-          <p style={{ lineHeight: '1.8', marginBottom: '20px' }}>
-            Gebel Maghrafa (Mountain of the Ladle) and Dist dominate the plain near Bir Ghaba. This area is the discovery site of Paralititan stromeri, the largest and heaviest dinosaur known, indicating a past subtropical environment rich in vegetation, fish, turtles, and crocodiles. Nearby is Gebel Al Ingleez (Black Mountain), named after a WWI lookout post used by British officer Captain Williams, offering an atmospheric summit just a five-minute walk up a dirt track—perfect for sunset views.
-          </p>
+      {/* PEAKS & CRYSTALS */}
+      <section className="section" style={{ padding: '80px 20px' }}>
+        <div style={{ maxWidth: '1000px', margin: '0 auto', textAlign: 'left' }}>
+          
+          {/* Gebel Maghrafa */}
+          <div style={{ display: 'flex', gap: '40px', alignItems: 'center', flexWrap: 'wrap', marginBottom: '80px' }}>
+            <img 
+              src="/images/gebel-maghrafa.jpg" 
+              alt="Gebel Maghrafa Mountain" 
+              style={{ flex: '1 1 400px', width: '100%', height: '350px', objectFit: 'cover', borderRadius: '12px', boxShadow: '0 10px 30px rgba(0,0,0,0.1)' }} 
+            />
+            <div style={{ flex: '1 1 400px' }}>
+              <h2 style={{ fontSize: '2.5rem', marginBottom: '20px' }}>Gebel Maghrafa</h2>
+              <p style={{ lineHeight: '1.8' }}>
+                Stand where giants once roamed. Gebel Maghrafa (Mountain of the Ladle) is the magnificent discovery site of Paralititan stromeri, the largest and heaviest dinosaur known to science[cite: 5]. Along with fossils of turtles, crocodiles, and fish, this landscape tells the story of a lush, subtropical past along the shores of an ancient sea[cite: 5].
+              </p>
+            </div>
+          </div>
 
-          {/* Sub: The Crystal Mountain */}
-          <h3 style={{ fontSize: '1.8rem', marginTop: '30px', marginBottom: '15px' }}>The Crystal Mountain</h3>
-          <p style={{ lineHeight: '1.8', marginBottom: '20px' }}>
-            Located between Bahariya and Farafra, north of the White Desert, the Crystal Mountain features stunning formations of Barite and/or Calcite crystals.
-          </p>
+          {/* The Crustal Mountain */}
+          <div style={{ display: 'flex', gap: '40px', alignItems: 'center', flexDirection: 'row-reverse', flexWrap: 'wrap' }}>
+            <img 
+              src="/images/crustal-mountain.jpg" 
+              alt="The Crystal Mountain" 
+              style={{ flex: '1 1 400px', width: '100%', height: '350px', objectFit: 'cover', borderRadius: '12px', boxShadow: '0 10px 30px rgba(0,0,0,0.1)' }} 
+            />
+            <div style={{ flex: '1 1 400px' }}>
+              <h2 style={{ fontSize: '2.5rem', marginBottom: '20px' }}>The Crystal Mountain</h2>
+              <p style={{ lineHeight: '1.8' }}>
+                Located on the route between Bahariya and Farafra, just north of the White Desert, lies a breathtaking geological masterpiece[cite: 5]. This shimmering natural arch and surrounding ground sparkle brilliantly under the desert sun, composed entirely of dazzling Barite and Calcite crystal formations[cite: 5].
+              </p>
+            </div>
+          </div>
 
-          {/* Sub: The Black Desert and White Desert */}
-          <h3 style={{ fontSize: '1.8rem', marginTop: '30px', marginBottom: '15px' }}>The Black & White Deserts</h3>
-          <p style={{ lineHeight: '1.8', marginBottom: '20px' }}>
-            <strong>Sahara Suda (The Black Desert):</strong> A favorite safari destination where the ground and mountains are strikingly covered with black stones.<br /><br />
-            <strong>Sahara el-Beida (The White Desert Park):</strong> A protected natural wonder that was once a pre-historic sea-bed and later a lush savannah teeming with elephants and giraffes. Today, wind and sand have eroded the plateau into a chalk-white landscape strewn with alien shapes named 'monoliths', 'mushrooms', 'ice cream cones', 'tents', and 'inselbergs'.
-          </p>
+        </div>
+      </section>
 
-          {/* Sub: Weather */}
-          <h3 style={{ fontSize: '1.8rem', marginTop: '40px', marginBottom: '20px' }}>Average Weather Conditions</h3>
-          <p style={{ lineHeight: '1.8', marginBottom: '20px' }}>
-            Bahariya Oasis enjoys moderate and dry weather all year round.
+      {/* THE BLACK & WHITE DESERTS */}
+      <section className="section" style={{ backgroundColor: '#1A2B34', color: '#FFF', padding: '80px 20px' }}>
+        <div style={{ maxWidth: '1000px', margin: '0 auto', textAlign: 'left' }}>
+          
+          <h2 style={{ fontSize: '2.5rem', marginBottom: '40px', textAlign: 'center', color: '#FFF' }}>The Deserts of Contrast</h2>
+
+          {/* The Black Desert */}
+          <div style={{ display: 'flex', gap: '40px', alignItems: 'center', flexWrap: 'wrap', marginBottom: '60px' }}>
+            <div style={{ flex: '1 1 400px' }}>
+              <h3 style={{ fontSize: '2rem', marginBottom: '15px' }}>The Black Desert</h3>
+              <p style={{ lineHeight: '1.8', color: '#DEDEDE' }}>
+                Approach Sahara Suda, where the ground and perfectly conical mountains are strikingly blanketed with black stones[cite: 5]. Weaving in and out of these dark, majestic peaks offers a thrilling and visually dramatic safari experience unlike anywhere else on earth[cite: 5].
+              </p>
+            </div>
+            <img 
+              src="/images/black-desert.jpg" 
+              alt="The Black Desert" 
+              style={{ flex: '1 1 400px', width: '100%', height: '300px', objectFit: 'cover', borderRadius: '12px', boxShadow: '0 10px 30px rgba(0,0,0,0.3)' }} 
+            />
+          </div>
+
+          {/* The White Desert */}
+          <div style={{ display: 'flex', gap: '40px', alignItems: 'center', flexDirection: 'row-reverse', flexWrap: 'wrap' }}>
+            <div style={{ flex: '1 1 400px' }}>
+              <h3 style={{ fontSize: '2rem', marginBottom: '15px' }}>The White Desert Park</h3>
+              <p style={{ lineHeight: '1.8', color: '#DEDEDE' }}>
+                Step into a surreal, alien landscape in Sahara el-Beida. Once a prehistoric sea-bed and later a lush savannah teeming with elephants and giraffes, the wind has eroded its chalky plateau into brilliant white shapes[cite: 5]. Marvel at giant rock formations resembling 'mushrooms', 'tents', and 'ice cream cones' that shimmer in the sunlight and turn gold at dusk[cite: 5].
+              </p>
+            </div>
+            <img 
+              src="/images/white-dessert.jpg" 
+              alt="The White Desert" 
+              style={{ flex: '1 1 400px', width: '100%', height: '300px', objectFit: 'cover', borderRadius: '12px', boxShadow: '0 10px 30px rgba(0,0,0,0.3)' }} 
+            />
+          </div>
+
+        </div>
+      </section>
+
+      {/* WEATHER TABLE */}
+      <section className="section" style={{ backgroundColor: '#FDFBF7', padding: '80px 20px' }}>
+        <div style={{ maxWidth: '1000px', margin: '0 auto', textAlign: 'left' }}>
+          <h2 style={{ fontSize: '2.5rem', marginBottom: '20px', textAlign: 'center' }}>Average Weather Conditions</h2>
+          <p style={{ lineHeight: '1.8', marginBottom: '30px', textAlign: 'center' }}>
+            Bahariya Oasis enjoys moderate and dry weather all year round[cite: 5].
           </p>
           
           <div style={{ overflowX: 'auto' }}>
-            <table style={{ width: '100%', borderCollapse: 'collapse', textAlign: 'center', backgroundColor: '#FFF', boxShadow: '0 4px 10px rgba(0,0,0,0.05)' }}>
+            <table style={{ width: '100%', borderCollapse: 'collapse', textAlign: 'center', backgroundColor: '#FFF', boxShadow: '0 4px 10px rgba(0,0,0,0.05)', borderRadius: '8px', overflow: 'hidden' }}>
               <thead>
                 <tr style={{ backgroundColor: '#1A2B34', color: '#FFF' }}>
                   <th style={{ padding: '15px' }}>Temp (°C)</th>
@@ -100,9 +211,9 @@ export default function OasisPage() {
               </tbody>
             </table>
           </div>
-
         </div>
       </section>
+
     </main>
   );
 }
