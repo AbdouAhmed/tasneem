@@ -9,6 +9,7 @@ export const siteConfig = {
     { name: "Rooms", href: "/rooms" },
     { name: "Dining", href: "/dining" },
     { name: "Safari & Tours", href: "/safari" },
+    { name: "The Oasis", href: "/oasis" }, // The new comprehensive guide page
     { name: "Location", href: "/location" }
   ]
 };
