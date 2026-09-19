@@ -1,6 +1,7 @@
 "use client";
 import { useEffect, useRef, useState } from 'react';
 
+// Native Scroll Animation Component
 function FadeIn({ children, direction = "up", delay = 0 }) {
   const [isVisible, setVisible] = useState(false);
   const domRef = useRef();
@@ -41,11 +42,12 @@ function FadeIn({ children, direction = "up", delay = 0 }) {
 }
 
 export default function DiningPage() {
+  // --- DYNAMIC SIZE DETECTION ---
   const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
     const handleResize = () => setIsMobile(window.innerWidth < 768);
-    handleResize();
+    handleResize(); // Set initial value
     window.addEventListener('resize', handleResize);
     return () => window.removeEventListener('resize', handleResize);
   }, []);
@@ -53,36 +55,29 @@ export default function DiningPage() {
   return (
     <main style={{ backgroundColor: '#FDFBF7', color: '#2C3A47', fontFamily: 'var(--font-montserrat), sans-serif', overflowX: 'hidden' }}>
       
-      {/* ELEGANT TYPOGRAPHIC HERO */}
+      {/* ORIGINAL SOLID HERO SECTION WITH DYNAMIC PADDING/FONTS */}
       <section style={{ 
-        position: 'relative',
-        background: 'linear-gradient(135deg, #1A2B34 0%, #0D161A 100%)', 
+        backgroundColor: '#1A2B34', 
         color: '#FDFBF7', 
-        padding: isMobile ? '120px 20px 80px' : '220px 20px 160px', 
+        padding: isMobile ? '120px 20px 80px' : '180px 20px 120px', 
         textAlign: 'center',
-        borderBottom: '8px solid #D4AF37',
-        overflow: 'hidden'
+        borderBottom: '8px solid #D4AF37'
       }}>
-        <div style={{ position: 'absolute', top: '0', left: '50%', transform: 'translateX(-50%)', width: '1px', height: '100px', backgroundColor: '#D4AF37', opacity: 0.4 }}></div>
-        <div style={{ maxWidth: '850px', margin: '0 auto', position: 'relative', zIndex: 2 }}>
+        <div style={{ maxWidth: '800px', margin: '0 auto' }}>
           <FadeIn direction="up">
-            <h2 style={{ fontFamily: 'var(--font-montserrat), sans-serif', fontSize: '1rem', fontWeight: '400', letterSpacing: '5px', textTransform: 'uppercase', color: '#D4AF37', marginBottom: '24px' }}>
-              Taste of the Oasis
-            </h2>
-            <h1 style={{ fontFamily: 'var(--font-cormorant), serif', fontSize: isMobile ? '3.5rem' : '5.5rem', fontWeight: '600', marginBottom: '32px', letterSpacing: '-1px', color: '#FFFFFF' }}>
+            <h1 style={{ fontFamily: 'var(--font-cormorant), serif', fontSize: isMobile ? '3.5rem' : '4.5rem', fontWeight: '600', marginBottom: '24px', letterSpacing: '-1px' }}>
               Culinary Experience
             </h1>
-            <div style={{ width: '60px', height: '2px', backgroundColor: '#D4AF37', margin: '0 auto 32px auto', opacity: 0.8 }}></div>
-            <p style={{ fontSize: isMobile ? '1.1rem' : '1.35rem', lineHeight: '1.9', fontWeight: '300', color: '#E2E8F0', maxWidth: '650px', margin: '0 auto' }}>
+            <p style={{ fontSize: isMobile ? '1.1rem' : '1.25rem', lineHeight: '1.8', opacity: 0.9, fontWeight: '300' }}>
               Immerse yourself in authentic Wahati flavors, slow-cooked traditions, and the legendary hospitality of the desert.
             </p>
           </FadeIn>
         </div>
       </section>
 
-      {/* SECTION 1: THE TRADITION */}
-      <section style={{ padding: isMobile ? '60px 20px' : '120px 20px', position: 'relative' }}>
-        <div style={{ maxWidth: '1200px', margin: '0 auto', display: 'flex', gap: isMobile ? '40px' : '80px', flexDirection: isMobile ? 'column' : 'row', alignItems: 'center' }}>
+      {/* SECTION 1 WITH DYNAMIC LAYOUT & ASPECT RATIO */}
+      <section style={{ padding: isMobile ? '60px 20px' : '100px 20px', position: 'relative' }}>
+        <div style={{ maxWidth: '1200px', margin: '0 auto', display: 'flex', gap: isMobile ? '40px' : '60px', flexDirection: isMobile ? 'column' : 'row', alignItems: 'center' }}>
           <div style={{ flex: '1 1 100%' }}>
             <FadeIn direction="left">
               <h2 style={{ fontFamily: 'var(--font-cormorant), serif', fontSize: isMobile ? '2.5rem' : '3rem', color: '#1A2B34', marginBottom: '20px' }}>The Zarab Feast</h2>
@@ -91,16 +86,20 @@ export default function DiningPage() {
               </p>
             </FadeIn>
           </div>
-          <div style={{ flex: '1 1 100%', width: '100%', maxWidth: '600px' }}>
+          <div style={{ flex: '1 1 100%', position: 'relative', width: '100%' }}>
             <FadeIn direction="right">
-              <img src="/images/dining-zarab.jpg" alt="Traditional Zarab Cooking" style={{ width: '100%', aspectRatio: '16/9', objectFit: 'cover', borderRadius: '12px', boxShadow: '0 20px 40px rgba(0,0,0,0.08)', backgroundColor: '#E2E8F0' }} />
+              <img 
+                src="/images/dining-zarab.jpg" 
+                alt="Traditional Zarab Cooking" 
+                style={{ width: '100%', aspectRatio: isMobile ? '4/3' : '16/9', objectFit: 'cover', borderRadius: '12px', boxShadow: '0 20px 40px rgba(0,0,0,0.08)' }} 
+              />
             </FadeIn>
           </div>
         </div>
       </section>
 
-      {/* SECTION 2: THE TEA RITUAL */}
-      <section style={{ backgroundColor: '#1A2B34', color: '#FDFBF7', padding: isMobile ? '60px 20px' : '120px 20px' }}>
+      {/* SECTION 2 WITH DYNAMIC LAYOUT & ASPECT RATIO */}
+      <section style={{ backgroundColor: '#1A2B34', color: '#FDFBF7', padding: isMobile ? '60px 20px' : '100px 20px' }}>
         <div style={{ maxWidth: '1200px', margin: '0 auto', display: 'flex', gap: isMobile ? '40px' : '80px', flexDirection: isMobile ? 'column' : 'row-reverse', alignItems: 'center' }}>
           <div style={{ flex: '1 1 100%' }}>
             <FadeIn direction="right">
@@ -110,9 +109,13 @@ export default function DiningPage() {
               </p>
             </FadeIn>
           </div>
-          <div style={{ flex: '1 1 100%', width: '100%', maxWidth: '600px' }}>
+          <div style={{ flex: '1 1 100%', position: 'relative', width: '100%' }}>
             <FadeIn direction="left">
-              <img src="/images/dining-tea.jpg" alt="Bedouin Tea Pouring" style={{ width: '100%', aspectRatio: '4/3', objectFit: 'cover', borderRadius: '12px', boxShadow: '0 25px 50px rgba(0,0,0,0.3)', backgroundColor: '#2C3A47' }} />
+              <img 
+                src="/images/dining-tea.jpg" 
+                alt="Bedouin Tea Pouring" 
+                style={{ width: '100%', aspectRatio: isMobile ? '4/3' : '16/9', objectFit: 'cover', borderRadius: '12px', boxShadow: '0 25px 50px rgba(0,0,0,0.3)' }} 
+              />
             </FadeIn>
           </div>
         </div>
