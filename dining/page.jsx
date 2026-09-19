@@ -2,7 +2,6 @@
 import { useEffect, useState } from 'react';
 
 export default function DiningPage() {
-  // --- DYNAMIC SIZE DETECTION ---
   const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
