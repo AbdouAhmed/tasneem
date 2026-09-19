@@ -42,23 +42,34 @@ function FadeIn({ children, direction = "up", delay = 0 }) {
 }
 
 export default function LocationPage() {
+  // --- RESPONSIVE LOGIC ---
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const handleResize = () => setIsMobile(window.innerWidth < 768);
+    handleResize();
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+  // --------------------------
+
   return (
-    <main style={{ backgroundColor: '#FDFBF7', color: '#2C3A47', fontFamily: 'var(--font-montserrat), sans-serif', paddingBottom: '100px' }}>
+    <main style={{ backgroundColor: '#FDFBF7', color: '#2C3A47', fontFamily: 'var(--font-montserrat), sans-serif', paddingBottom: isMobile ? '60px' : '100px' }}>
       
       {/* PAGE HEADER */}
       <section style={{ 
         backgroundColor: '#1A2B34', 
         color: '#FDFBF7', 
-        padding: '160px 20px 80px', 
+        padding: isMobile ? '120px 20px 60px' : '160px 20px 80px', 
         textAlign: 'center',
         borderBottom: '8px solid #D4AF37'
       }}>
         <div style={{ maxWidth: '800px', margin: '0 auto' }}>
           <FadeIn direction="up">
-            <h1 style={{ fontFamily: 'var(--font-cormorant), serif', fontSize: '4rem', fontWeight: '600', marginBottom: '20px' }}>
+            <h1 style={{ fontFamily: 'var(--font-cormorant), serif', fontSize: isMobile ? '3rem' : '4rem', fontWeight: '600', marginBottom: '20px' }}>
               Location & Directions
             </h1>
-            <p style={{ fontSize: '1.2rem', lineHeight: '1.8', opacity: 0.9, fontWeight: '300' }}>
+            <p style={{ fontSize: isMobile ? '1.1rem' : '1.2rem', lineHeight: '1.8', opacity: 0.9, fontWeight: '300' }}>
               Your journey to tranquility begins here. Discover how to reach our sanctuary in the heart of the Western Desert.
             </p>
           </FadeIn>
@@ -66,11 +77,17 @@ export default function LocationPage() {
       </section>
 
       {/* MAP & DETAILS SECTION */}
-      <section style={{ padding: '80px 20px', maxWidth: '1200px', margin: '0 auto' }}>
-        <div style={{ display: 'flex', flexWrap: 'wrap', gap: '60px', alignItems: 'flex-start' }}>
+      <section style={{ padding: isMobile ? '50px 20px' : '80px 20px', maxWidth: '1200px', margin: '0 auto' }}>
+        <div style={{ 
+            display: 'flex', 
+            flexWrap: 'wrap', 
+            gap: isMobile ? '40px' : '60px', 
+            alignItems: 'flex-start',
+            flexDirection: isMobile ? 'column' : 'row' // Stacks the text above the map on mobile
+        }}>
           
           {/* Left Column: Information */}
-          <div style={{ flex: '1 1 400px' }}>
+          <div style={{ flex: '1 1 100%', maxWidth: isMobile ? '100%' : '400px' }}>
             <FadeIn direction="left">
               <h2 style={{ fontFamily: 'var(--font-cormorant), serif', fontSize: '2.5rem', color: '#1A2B34', marginBottom: '24px' }}>
                 Reaching TASNEEM
@@ -99,6 +116,8 @@ export default function LocationPage() {
 
               <a href="https://www.google.com/maps/place/Bahariya+Oasis" target="_blank" rel="noopener noreferrer" style={{
                 display: 'inline-block',
+                width: isMobile ? '100%' : 'auto', // Button takes full width on mobile
+                textAlign: 'center',
                 padding: '16px 40px',
                 backgroundColor: '#1A2B34',
                 color: '#FDFBF7',
@@ -106,8 +125,7 @@ export default function LocationPage() {
                 fontSize: '1.1rem',
                 fontWeight: '600',
                 borderRadius: '4px',
-                boxShadow: '0 10px 20px rgba(0,0,0,0.1)',
-                transition: 'transform 0.3s ease, background-color 0.3s ease'
+                boxShadow: '0 10px 20px rgba(0,0,0,0.1)'
               }}>
                 Open Native Google Maps
               </a>
@@ -115,7 +133,7 @@ export default function LocationPage() {
           </div>
 
           {/* Right Column: Interactive Map */}
-          <div style={{ flex: '1 1 600px', width: '100%' }}>
+          <div style={{ flex: '1 1 100%', width: '100%' }}>
             <FadeIn direction="right">
               <div style={{ 
                 borderRadius: '16px', 
@@ -127,7 +145,7 @@ export default function LocationPage() {
                 <iframe 
                   src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d111244.64615372338!2d28.8258284617478!3d28.34907106883216!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x145b23d91b490fdf%3A0xc6c4293f9c6d36e2!2sBahariya%20Oasis!5e0!3m2!1sen!2seg!4v1700000000000!5m2!1sen!2seg" 
                   width="100%" 
-                  height="500" 
+                  height={isMobile ? "350" : "500"} // Shorter map on mobile
                   style={{ border: 0, display: 'block' }} 
                   allowFullScreen="" 
                   loading="lazy" 
