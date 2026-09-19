@@ -45,20 +45,70 @@ export default function OasisPage() {
   return (
     <main style={{ backgroundColor: '#FDFBF7', color: '#2C3A47', fontFamily: 'var(--font-montserrat), sans-serif', overflowX: 'hidden' }}>
       
-      {/* 1. DRAMATIC HERO SECTION */}
+      {/* 1. ELEGANT TYPOGRAPHIC HERO SECTION */}
       <section style={{ 
-        backgroundColor: '#1A2B34', 
+        position: 'relative',
+        background: 'linear-gradient(135deg, #1A2B34 0%, #0D161A 100%)', 
         color: '#FDFBF7', 
-        padding: '180px 20px 120px', 
+        padding: '220px 20px 160px', 
         textAlign: 'center',
-        borderBottom: '8px solid #D4AF37'
+        borderBottom: '8px solid #D4AF37',
+        overflow: 'hidden'
       }}>
-        <div style={{ maxWidth: '800px', margin: '0 auto' }}>
+        {/* Subtle Decorative Gold Line (Top) */}
+        <div style={{ 
+          position: 'absolute', 
+          top: '0', 
+          left: '50%', 
+          transform: 'translateX(-50%)', 
+          width: '1px', 
+          height: '100px', 
+          backgroundColor: '#D4AF37', 
+          opacity: 0.4 
+        }}></div>
+
+        <div style={{ maxWidth: '850px', margin: '0 auto', position: 'relative', zIndex: 2 }}>
           <FadeIn direction="up">
-            <h1 style={{ fontFamily: 'var(--font-cormorant), serif', fontSize: '4.5rem', fontWeight: '600', marginBottom: '24px', letterSpacing: '-1px' }}>
+            <h2 style={{ 
+              fontFamily: 'var(--font-montserrat), sans-serif',
+              fontSize: '1rem', 
+              fontWeight: '400',
+              letterSpacing: '5px',
+              textTransform: 'uppercase',
+              color: '#D4AF37',
+              marginBottom: '24px'
+            }}>
+              The Western Oases
+            </h2>
+            
+            <h1 style={{ 
+              fontFamily: 'var(--font-cormorant), serif', 
+              fontSize: '5.5rem', 
+              fontWeight: '600', 
+              marginBottom: '32px', 
+              letterSpacing: '-1px',
+              color: '#FFFFFF'
+            }}>
               Discover the Region
             </h1>
-            <p style={{ fontSize: '1.25rem', lineHeight: '1.8', opacity: 0.9, fontWeight: '300' }}>
+            
+            {/* Center Gold Divider */}
+            <div style={{ 
+              width: '60px', 
+              height: '2px', 
+              backgroundColor: '#D4AF37', 
+              margin: '0 auto 32px auto', 
+              opacity: 0.8 
+            }}></div>
+            
+            <p style={{ 
+              fontSize: '1.35rem', 
+              lineHeight: '1.9', 
+              fontWeight: '300',
+              color: '#E2E8F0',
+              maxWidth: '650px',
+              margin: '0 auto'
+            }}>
               A living historical catalogue of Egypt, echoing the enduring legacies of Pharaohs, Persians, Romans, and Copts.
             </p>
           </FadeIn>
