@@ -1,8 +1,9 @@
+// src/app/page.jsx
 export default function HomePage() {
   return (
     <main style={{ backgroundColor: '#FDFBF7', color: '#2C3A47', fontFamily: 'var(--font-montserrat), sans-serif' }}>
       
-      {/* HERO SECTION WITH NEW BACKGROUND */}
+      {/* HERO SECTION FIXED FOR READABILITY */}
       <section style={{
         position: 'relative',
         height: '100vh',
@@ -10,20 +11,41 @@ export default function HomePage() {
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
-        /* The linear-gradient adds a dark overlay so your text pops against the bright image */
-        backgroundImage: 'linear-gradient(rgba(26, 43, 52, 0.4), rgba(26, 43, 52, 0.8)), url("/images/hero-bg.jpg")',
-        backgroundSize: 'cover',
-        backgroundPosition: 'center',
-        backgroundAttachment: 'fixed', /* Gives a premium parallax scrolling effect */
         color: '#FDFBF7',
         textAlign: 'center',
-        padding: '20px'
+        padding: '20px',
+        overflow: 'hidden'
       }}>
-        <div style={{ maxWidth: '900px', zIndex: 1, marginTop: '80px' }}>
+        {/* Background Image layer */}
+        <div style={{
+            position: 'absolute',
+            top: 0,
+            left: 0,
+            width: '100%',
+            height: '100%',
+            backgroundImage: 'url("/images/hero-bg.jpg")',
+            backgroundSize: 'cover',
+            backgroundPosition: 'center',
+            backgroundAttachment: 'fixed',
+            zIndex: 0
+        }}></div>
+        
+        {/* Dark Overlay Layer - THIS FIXES THE READABILITY */}
+        <div style={{
+            position: 'absolute',
+            top: 0,
+            left: 0,
+            width: '100%',
+            height: '100%',
+            backgroundColor: 'rgba(26, 43, 52, 0.65)', /* Darkened to 65% opacity */
+            zIndex: 1
+        }}></div>
+
+        <div style={{ maxWidth: '900px', zIndex: 2, marginTop: '80px', position: 'relative' }}>
           <h2 style={{ 
             fontFamily: 'var(--font-montserrat), sans-serif',
             fontSize: '1.2rem', 
-            fontWeight: '400',
+            fontWeight: '600',
             letterSpacing: '3px',
             textTransform: 'uppercase',
             color: '#D4AF37',
@@ -37,15 +59,15 @@ export default function HomePage() {
             fontWeight: '600', 
             marginBottom: '24px',
             lineHeight: '1.1',
-            textShadow: '0 4px 20px rgba(0,0,0,0.4)'
+            textShadow: '0 4px 20px rgba(0,0,0,0.6)'
           }}>
             Experience the Authentic Soul of the Desert
           </h1>
           <p style={{ 
             fontSize: '1.3rem', 
-            fontWeight: '300', 
+            fontWeight: '400', 
             marginBottom: '40px',
-            opacity: 0.9,
+            opacity: 1,
             maxWidth: '700px',
             margin: '0 auto 40px auto'
           }}>
