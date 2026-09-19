@@ -72,26 +72,42 @@ export default function RoomsPage() {
         </div>
       </section>
 
-      {/* ROOMS SECTION (HEADER ONLY) */}
+      {/* ROOMS SECTION WITH UPDATED EXACT CONTENT */}
       <section style={{ padding: isMobile ? '60px 20px' : '100px 20px', position: 'relative' }}>
         <div style={{ maxWidth: '1200px', margin: '0 auto', display: 'flex', gap: isMobile ? '40px' : '60px', flexDirection: isMobile ? 'column' : 'row', alignItems: 'center' }}>
+          
+          {/* Text Content */}
           <div style={{ flex: '1 1 100%' }}>
             <FadeIn direction="left">
               <h2 style={{ fontFamily: 'var(--font-cormorant), serif', fontSize: isMobile ? '2.5rem' : '3rem', color: '#1A2B34', marginBottom: '20px' }}>
                 Rooms
               </h2>
-              {/* Content removed as requested */}
+              
+              <p style={{ lineHeight: '1.9', fontSize: '1.1rem', color: '#4A5568', marginBottom: '20px' }}>
+                All rooms with Balconies, overlooking East and West, provide stunning clear view of the breathtaking oasis and the mountains in the background.
+              </p>
+
+              <ul style={{ listStyleType: 'disc', paddingLeft: '20px', margin: '0 0 20px 0', color: '#4A5568', lineHeight: '2', fontSize: '1.05rem' }}>
+                <li>All rooms with private bath/shower</li>
+                <li>In-room safe boxes</li>
+                <li>Mini bars</li>
+                <li>Hair dryers</li>
+                <li>Rooms' beds are twin beds</li>
+              </ul>
             </FadeIn>
           </div>
+
+          {/* Image */}
           <div style={{ flex: '1 1 100%', position: 'relative', width: '100%' }}>
             <FadeIn direction="right">
               <img 
                 src="/images/room-suite.jpg" 
-                alt="Rooms" 
+                alt="Rooms View" 
                 style={{ width: '100%', aspectRatio: isMobile ? '4/3' : '16/9', objectFit: 'cover', borderRadius: '12px', boxShadow: '0 20px 40px rgba(0,0,0,0.08)' }} 
               />
             </FadeIn>
           </div>
+
         </div>
       </section>
 

@@ -72,7 +72,7 @@ export default function DiningPage() {
         </div>
       </section>
 
-      {/* SECTION 1: THE MAIN RESTAURANT (HEADER ONLY) */}
+      {/* MAIN RESTAURANT SECTION */}
       <section style={{ padding: isMobile ? '60px 20px' : '100px 20px', position: 'relative' }}>
         <div style={{ maxWidth: '1200px', margin: '0 auto', display: 'flex', gap: isMobile ? '40px' : '60px', flexDirection: isMobile ? 'column' : 'row', alignItems: 'center' }}>
           <div style={{ flex: '1 1 100%' }}>
@@ -80,7 +80,9 @@ export default function DiningPage() {
               <h2 style={{ fontFamily: 'var(--font-cormorant), serif', fontSize: isMobile ? '2.5rem' : '3rem', color: '#1A2B34', marginBottom: '20px' }}>
                 The Main Restaurant
               </h2>
-              {/* Content removed as requested */}
+              <p style={{ lineHeight: '1.9', fontSize: '1.1rem', color: '#4A5568' }}>
+                The main restaurant (Indoor and outdoor) is fully equipped with full board and catering facilities, overlooking the oasis and the mountains.
+              </p>
             </FadeIn>
           </div>
           <div style={{ flex: '1 1 100%', position: 'relative', width: '100%' }}>
@@ -95,7 +97,7 @@ export default function DiningPage() {
         </div>
       </section>
 
-      {/* SECTION 2: THE COFFEE SHOP (HEADER ONLY) */}
+      {/* COFFEE SHOP SECTION */}
       <section style={{ backgroundColor: '#1A2B34', color: '#FDFBF7', padding: isMobile ? '60px 20px' : '100px 20px' }}>
         <div style={{ maxWidth: '1200px', margin: '0 auto', display: 'flex', gap: isMobile ? '40px' : '80px', flexDirection: isMobile ? 'column' : 'row-reverse', alignItems: 'center' }}>
           <div style={{ flex: '1 1 100%' }}>
@@ -103,7 +105,9 @@ export default function DiningPage() {
               <h2 style={{ fontFamily: 'var(--font-cormorant), serif', fontSize: isMobile ? '2.5rem' : '3rem', color: '#D4AF37', marginBottom: '20px' }}>
                 The Coffee Shop
               </h2>
-              {/* Content removed as requested */}
+              <p style={{ lineHeight: '1.9', fontSize: '1.1rem', color: '#E2E8F0' }}>
+                The Coffee shop (Indoor and outdoor) serve all kinds of Egyptian and soft drinks.
+              </p>
             </FadeIn>
           </div>
           <div style={{ flex: '1 1 100%', position: 'relative', width: '100%' }}>
