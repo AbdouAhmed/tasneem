@@ -1,254 +1,127 @@
-"use client";
-import { useEffect, useRef, useState } from 'react';
-
-// Custom Animation Component (No installation required)
-function FadeIn({ children, direction = "up", delay = 0 }) {
-  const [isVisible, setVisible] = useState(false);
-  const domRef = useRef();
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          setVisible(true);
-          observer.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.1 });
-
-    const currentRef = domRef.current;
-    if (currentRef) observer.observe(currentRef);
-    return () => { if (currentRef) observer.unobserve(currentRef); };
-  }, []);
-
-  let transformStart = 'translateY(40px)';
-  if (direction === 'left') transformStart = 'translateX(-40px)';
-  if (direction === 'right') transformStart = 'translateX(40px)';
-
+export default function HomePage() {
   return (
-    <div
-      ref={domRef}
-      style={{
-        opacity: isVisible ? 1 : 0,
-        transform: isVisible ? 'translate(0, 0)' : transformStart,
-        transition: `opacity 0.8s ease-out ${delay}s, transform 0.8s ease-out ${delay}s`,
-        willChange: 'opacity, transform',
-        width: '100%'
-      }}
-    >
-      {children}
-    </div>
-  );
-}
-
-export default function OasisPage() {
-  return (
-    <main style={{ backgroundColor: '#FDFBF7', color: '#2C3A47', fontFamily: 'var(--font-montserrat), sans-serif', overflowX: 'hidden' }}>
+    <main style={{ backgroundColor: '#FDFBF7', color: '#2C3A47', fontFamily: 'var(--font-montserrat), sans-serif' }}>
       
-      {/* 1. DRAMATIC HERO SECTION */}
-      <section style={{ 
-        backgroundColor: '#1A2B34', 
-        color: '#FDFBF7', 
-        padding: '180px 20px 120px', 
+      {/* HERO SECTION FIXED FOR READABILITY */}
+      <section style={{
+        position: 'relative',
+        height: '100vh',
+        minHeight: '600px',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
         textAlign: 'center',
-        borderBottom: '8px solid #D4AF37'
+        padding: '20px',
+        overflow: 'hidden'
       }}>
+        {/* Background Image layer */}
+        <div style={{
+            position: 'absolute',
+            top: 0,
+            left: 0,
+            width: '100%',
+            height: '100%',
+            backgroundImage: 'url("/images/hero-bg.jpg")',
+            backgroundSize: 'cover',
+            backgroundPosition: 'center',
+            backgroundAttachment: 'fixed',
+            zIndex: 0
+        }}></div>
+        
+        {/* Dark Overlay Layer */}
+        <div style={{
+            position: 'absolute',
+            top: 0,
+            left: 0,
+            width: '100%',
+            height: '100%',
+            backgroundColor: 'rgba(26, 43, 52, 0.65)',
+            zIndex: 1
+        }}></div>
+
+        <div style={{ maxWidth: '900px', zIndex: 2, marginTop: '80px', position: 'relative' }}>
+          <h2 style={{ 
+            fontFamily: 'var(--font-montserrat), sans-serif',
+            fontSize: '1.2rem', 
+            fontWeight: '600',
+            letterSpacing: '3px',
+            textTransform: 'uppercase',
+            color: '#D4AF37', // Gold color for contrast
+            marginBottom: '15px'
+          }}>
+            Bahariya Oasis, Egypt
+          </h2>
+          
+          {/* FORCED WHITE COLOR TO FIX READABILITY ISSUE */}
+          <h1 style={{ 
+            fontFamily: 'var(--font-cormorant), serif', 
+            fontSize: '5rem', 
+            fontWeight: '600', 
+            marginBottom: '24px',
+            lineHeight: '1.1',
+            color: '#FFFFFF', /* <-- Explicitly forcing white text */
+            textShadow: '0 4px 20px rgba(0,0,0,0.8)'
+          }}>
+            Experience the Authentic Soul of the Desert
+          </h1>
+          
+          <p style={{ 
+            fontSize: '1.3rem', 
+            fontWeight: '400', 
+            marginBottom: '40px',
+            maxWidth: '700px',
+            margin: '0 auto 40px auto',
+            color: '#FDFBF7', /* <-- Explicitly forcing off-white text */
+            textShadow: '0 2px 10px rgba(0,0,0,0.5)'
+          }}>
+            TASNEEM is the first boutique hotel in the Egyptian Oases designed with Bedouin and Arabic spirit, offering panoramic views and unparalleled luxury.
+          </p>
+          
+          <div style={{ display: 'flex', gap: '20px', justifyContent: 'center', flexWrap: 'wrap' }}>
+            <a href="/rooms" style={{
+              display: 'inline-block',
+              padding: '16px 40px',
+              backgroundColor: '#D4AF37',
+              color: '#1A2B34',
+              textDecoration: 'none',
+              fontSize: '1.1rem',
+              fontWeight: '600',
+              borderRadius: '4px',
+              boxShadow: '0 4px 15px rgba(0,0,0,0.2)',
+              transition: 'transform 0.3s ease'
+            }}>
+              View Our Rooms
+            </a>
+            
+            {/* GOOGLE MAPS LOCATION LINK */}
+            <a href="https://www.google.com/maps/place/Bahariya+Oasis,+Giza+Governorate,+Egypt" target="_blank" rel="noopener noreferrer" style={{
+              display: 'inline-block',
+              padding: '16px 40px',
+              backgroundColor: 'transparent',
+              color: '#FFFFFF',
+              border: '2px solid #FFFFFF',
+              textDecoration: 'none',
+              fontSize: '1.1rem',
+              fontWeight: '600',
+              borderRadius: '4px',
+              transition: 'background-color 0.3s ease'
+            }}>
+              Location (Google Maps)
+            </a>
+          </div>
+        </div>
+      </section>
+
+      {/* QUICK INTRO SECTION */}
+      <section style={{ padding: '100px 20px', textAlign: 'center' }}>
         <div style={{ maxWidth: '800px', margin: '0 auto' }}>
-          <FadeIn direction="up">
-            <h1 style={{ fontFamily: 'var(--font-cormorant), serif', fontSize: '4.5rem', fontWeight: '600', marginBottom: '24px', letterSpacing: '-1px' }}>
-              Discover the Region
-            </h1>
-            <p style={{ fontSize: '1.25rem', lineHeight: '1.8', opacity: 0.9, fontWeight: '300' }}>
-              A living historical catalogue of Egypt, echoing the enduring legacies of Pharaohs, Persians, Romans, and Copts.
-            </p>
-          </FadeIn>
-        </div>
-      </section>
-
-      {/* 2. THE WESTERN DESERT & EGYPT MAP */}
-      <section style={{ padding: '100px 20px', position: 'relative' }}>
-        <div style={{ maxWidth: '1200px', margin: '0 auto', display: 'flex', gap: '60px', alignItems: 'center', flexWrap: 'wrap' }}>
-          <div style={{ flex: '1 1 450px' }}>
-            <FadeIn direction="left">
-              <h2 style={{ fontFamily: 'var(--font-cormorant), serif', fontSize: '3rem', color: '#1A2B34', marginBottom: '24px' }}>The Western Desert</h2>
-              <p style={{ lineHeight: '1.9', fontSize: '1.1rem', color: '#4A5568', marginBottom: '20px' }}>
-                Step into a vast, untamed frontier. Spanning an incredible two-thirds of Egypt's land surface, this magnificent expanse stretches from the Nile to the Libyan border, and from the Mediterranean down to Sudan. 
-              </p>
-              <p style={{ lineHeight: '1.9', fontSize: '1.1rem', color: '#4A5568' }}>
-                Though it houses only a tiny fraction of the nation's population, it is the proud home of nomadic and semi-nomadic herdsmen. The scattered oases you will encounter are the lush, green remnants of a prehistoric savannah.
-              </p>
-            </FadeIn>
-          </div>
-          <div style={{ flex: '1 1 500px', position: 'relative' }}>
-            <FadeIn direction="right">
-              <div style={{ position: 'absolute', inset: '-15px', backgroundColor: '#F4EFE6', borderRadius: '16px', zIndex: 0 }}></div>
-              <img 
-                src="/images/egypt-map.jpg" 
-                alt="Egypt Route Map" 
-                style={{ width: '100%', position: 'relative', zIndex: 1, objectFit: 'contain', borderRadius: '12px', backgroundColor: '#FFF', padding: '15px', boxShadow: '0 20px 40px rgba(0,0,0,0.08)' }} 
-              />
-            </FadeIn>
-          </div>
-        </div>
-      </section>
-
-      {/* 3. BAHARIYA OASIS */}
-      <section style={{ backgroundColor: '#F4EFE6', padding: '120px 20px' }}>
-        <div style={{ maxWidth: '1200px', margin: '0 auto', display: 'flex', gap: '80px', alignItems: 'center', flexDirection: 'row-reverse', flexWrap: 'wrap' }}>
-          <div style={{ flex: '1 1 450px' }}>
-            <FadeIn direction="right">
-              <h2 style={{ fontFamily: 'var(--font-cormorant), serif', fontSize: '3rem', color: '#1A2B34', marginBottom: '24px' }}>Bahariya Oasis</h2>
-              <p style={{ lineHeight: '1.9', fontSize: '1.1rem', color: '#4A5568', marginBottom: '20px' }}>
-                Discover the crown jewel of the desert, located 340km southwest of Cairo. Nestled within a massive 2,000-square-kilometer depression, Bahariya is completely surrounded by towering black hills and ancient basalt columns forged during the Cretaceous Period.
-              </p>
-              <p style={{ lineHeight: '1.9', fontSize: '1.1rem', color: '#4A5568' }}>
-                Once the floor of an immense ocean, this lush sanctuary has been inhabited for over 10,000 years and is fed by restorative, medicinal thermal springs in the heart of Bawiti village.
-              </p>
-              
-              <div style={{ marginTop: '40px', paddingLeft: '20px', borderLeft: '3px solid #D4AF37' }}>
-                <h3 style={{ fontFamily: 'var(--font-cormorant), serif', fontSize: '1.8rem', color: '#1A2B34', marginBottom: '10px' }}>People & Modernity</h3>
-                <p style={{ lineHeight: '1.8', color: '#4A5568' }}>
-                  The local Wahati people proudly carry a rich lineage. While agriculture remains vital, the community thrives today through a vibrant, international tourism sector guided by local experts.
-                </p>
-              </div>
-            </FadeIn>
-          </div>
-          <div style={{ flex: '1 1 500px' }}>
-            <FadeIn direction="left">
-              <img 
-                src="/images/bahriya.jpg" 
-                alt="Bahariya Oasis" 
-                style={{ width: '100%', height: '600px', objectFit: 'cover', borderRadius: '16px', boxShadow: '0 25px 50px rgba(0,0,0,0.15)' }} 
-              />
-            </FadeIn>
-          </div>
-        </div>
-      </section>
-
-      {/* 4. ANTIQUITIES SITES & TOMBS */}
-      <section style={{ padding: '120px 20px', backgroundColor: '#FDFBF7' }}>
-        <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
-          <FadeIn direction="up">
-            <div style={{ textAlign: 'center', marginBottom: '60px' }}>
-              <h2 style={{ fontFamily: 'var(--font-cormorant), serif', fontSize: '3.5rem', color: '#1A2B34', marginBottom: '20px' }}>Legends of Antiquity</h2>
-              <p style={{ lineHeight: '1.9', fontSize: '1.1rem', color: '#4A5568', maxWidth: '700px', margin: '0 auto' }}>
-                Unearth the secrets of the past. From gilded relics to vibrantly painted resting places, the oasis is a treasure trove of ancient Egyptian and Roman history.
-              </p>
-            </div>
-          </FadeIn>
-
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(400px, 1fr))', gap: '50px' }}>
-            <FadeIn direction="up" delay={0.1}>
-              <div style={{ backgroundColor: '#FFF', borderRadius: '16px', overflow: 'hidden', boxShadow: '0 15px 35px rgba(0,0,0,0.06)' }}>
-                <img src="/images/antiquities-sites.jpg" alt="Antiquities Sites" style={{ width: '100%', height: '320px', objectFit: 'cover', objectPosition: 'center 20%' }} />
-                <div style={{ padding: '40px' }}>
-                  <h3 style={{ fontFamily: 'var(--font-cormorant), serif', fontSize: '2rem', color: '#1A2B34', marginBottom: '15px' }}>Valley of Golden Mummies</h3>
-                  <p style={{ lineHeight: '1.8', color: '#4A5568' }}>
-                    Brought to light in 1999 by Zahi Hawass, this sprawling necropolis features Roman-period mummies beautifully adorned with gypsum masks and a thin layer of gold. 
-                  </p>
-                </div>
-              </div>
-            </FadeIn>
-
-            <FadeIn direction="up" delay={0.3}>
-              <div style={{ backgroundColor: '#FFF', borderRadius: '16px', overflow: 'hidden', boxShadow: '0 15px 35px rgba(0,0,0,0.06)' }}>
-                <img src="/images/ancient-tombs.jpg" alt="Ancient Tomb Wall Relief" style={{ width: '100%', height: '320px', objectFit: 'cover' }} />
-                <div style={{ padding: '40px' }}>
-                  <h3 style={{ fontFamily: 'var(--font-cormorant), serif', fontSize: '2rem', color: '#1A2B34', marginBottom: '15px' }}>The Ancient Tombs</h3>
-                  <p style={{ lineHeight: '1.8', color: '#4A5568' }}>
-                    Descend into the 26th Dynasty tombs at Qasr Selim belonging to wealthy merchants. These publicly accessible resting places feature brilliantly preserved wall paintings.
-                  </p>
-                </div>
-              </div>
-            </FadeIn>
-          </div>
-        </div>
-      </section>
-
-      {/* 5. PEAKS & CRYSTALS */}
-      <section style={{ backgroundColor: '#F4EFE6', padding: '120px 20px' }}>
-        <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
-          
-          <div style={{ display: 'flex', gap: '60px', alignItems: 'center', flexWrap: 'wrap', marginBottom: '100px' }}>
-            <div style={{ flex: '1 1 500px' }}>
-              <FadeIn direction="left">
-                <img src="/images/gebel-maghrafa.jpg" alt="Gebel Maghrafa Mountain" style={{ width: '100%', height: '450px', objectFit: 'cover', borderRadius: '16px', boxShadow: '0 20px 40px rgba(0,0,0,0.1)' }} />
-              </FadeIn>
-            </div>
-            <div style={{ flex: '1 1 450px' }}>
-              <FadeIn direction="right">
-                <h2 style={{ fontFamily: 'var(--font-cormorant), serif', fontSize: '3rem', color: '#1A2B34', marginBottom: '24px' }}>Gebel Maghrafa</h2>
-                <p style={{ lineHeight: '1.9', fontSize: '1.1rem', color: '#4A5568' }}>
-                  Stand where giants once roamed. Gebel Maghrafa is the magnificent discovery site of Paralititan stromeri, the largest dinosaur known to science, telling the story of a lush, subtropical past.
-                </p>
-              </FadeIn>
-            </div>
-          </div>
-
-          <div style={{ display: 'flex', gap: '60px', alignItems: 'center', flexDirection: 'row-reverse', flexWrap: 'wrap' }}>
-            <div style={{ flex: '1 1 500px' }}>
-              <FadeIn direction="right">
-                <img src="/images/crustal-mountain.jpg" alt="The Crystal Mountain" style={{ width: '100%', height: '450px', objectFit: 'cover', borderRadius: '16px', boxShadow: '0 20px 40px rgba(0,0,0,0.1)' }} />
-              </FadeIn>
-            </div>
-            <div style={{ flex: '1 1 450px' }}>
-              <FadeIn direction="left">
-                <h2 style={{ fontFamily: 'var(--font-cormorant), serif', fontSize: '3rem', color: '#1A2B34', marginBottom: '24px' }}>The Crystal Mountain</h2>
-                <p style={{ lineHeight: '1.9', fontSize: '1.1rem', color: '#4A5568' }}>
-                  Located on the route between Bahariya and Farafra, this breathtaking geological masterpiece sparkles brilliantly under the desert sun, composed entirely of dazzling Barite and Calcite crystal formations.
-                </p>
-              </FadeIn>
-            </div>
-          </div>
-
-        </div>
-      </section>
-
-      {/* 6. THE BLACK & WHITE DESERTS */}
-      <section style={{ backgroundColor: '#1A2B34', color: '#FFF', padding: '120px 20px' }}>
-        <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
-          
-          <FadeIn direction="up">
-            <div style={{ textAlign: 'center', marginBottom: '80px' }}>
-              <h2 style={{ fontFamily: 'var(--font-cormorant), serif', fontSize: '3.5rem', color: '#D4AF37', marginBottom: '20px' }}>Deserts of Contrast</h2>
-              <p style={{ lineHeight: '1.9', fontSize: '1.1rem', color: '#E2E8F0', maxWidth: '700px', margin: '0 auto' }}>
-                Experience two of the most visually stunning and dramatic safari landscapes on earth, sitting side by side in the Western Desert.
-              </p>
-            </div>
-          </FadeIn>
-
-          <div style={{ display: 'flex', gap: '60px', alignItems: 'center', flexWrap: 'wrap', marginBottom: '80px' }}>
-            <div style={{ flex: '1 1 450px' }}>
-              <FadeIn direction="left">
-                <h3 style={{ fontFamily: 'var(--font-cormorant), serif', fontSize: '2.5rem', marginBottom: '20px' }}>The Black Desert</h3>
-                <p style={{ lineHeight: '1.9', fontSize: '1.1rem', color: '#CBD5E0' }}>
-                  Approach Sahara Suda, where the ground and perfectly conical mountains are strikingly blanketed with black stones. Weaving in and out of these dark, majestic peaks offers a thrilling and visually dramatic safari experience.
-                </p>
-              </FadeIn>
-            </div>
-            <div style={{ flex: '1 1 500px' }}>
-              <FadeIn direction="right">
-                <img src="/images/black-desert.jpg" alt="The Black Desert" style={{ width: '100%', height: '400px', objectFit: 'cover', borderRadius: '16px', boxShadow: '0 25px 50px rgba(0,0,0,0.5)' }} />
-              </FadeIn>
-            </div>
-          </div>
-
-          <div style={{ display: 'flex', gap: '60px', alignItems: 'center', flexDirection: 'row-reverse', flexWrap: 'wrap' }}>
-            <div style={{ flex: '1 1 450px' }}>
-              <FadeIn direction="right">
-                <h3 style={{ fontFamily: 'var(--font-cormorant), serif', fontSize: '2.5rem', marginBottom: '20px' }}>The White Desert Park</h3>
-                <p style={{ lineHeight: '1.9', fontSize: '1.1rem', color: '#CBD5E0' }}>
-                  Step into a surreal, alien landscape in Sahara el-Beida. Marvel at giant rock formations resembling mushrooms and ice cream cones that shimmer in the sunlight and turn gold at dusk.
-                </p>
-              </FadeIn>
-            </div>
-            <div style={{ flex: '1 1 500px' }}>
-              <FadeIn direction="left">
-                <img src="/images/white-dessert.jpg" alt="The White Desert" style={{ width: '100%', height: '400px', objectFit: 'cover', borderRadius: '16px', boxShadow: '0 25px 50px rgba(0,0,0,0.5)' }} />
-              </FadeIn>
-            </div>
-          </div>
-
+          <h2 style={{ fontFamily: 'var(--font-cormorant), serif', fontSize: '3rem', color: '#1A2B34', marginBottom: '24px' }}>
+            A Sanctuary in the Sand
+          </h2>
+          <div style={{ width: '60px', height: '3px', backgroundColor: '#D4AF37', margin: '0 auto 30px auto' }}></div>
+          <p style={{ lineHeight: '1.9', fontSize: '1.1rem', color: '#4A5568' }}>
+            Our independent lodging features bold, curated architecture reflecting the local culture. Whether you are embarking on a safari into the White Desert or seeking a peaceful retreat overlooking the palm groves, we guarantee an atmosphere of pure luxury and adventure.
+          </p>
         </div>
       </section>
 
