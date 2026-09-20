@@ -1,7 +1,6 @@
 "use client";
 import { useEffect, useRef, useState } from 'react';
 
-// Native Scroll Animation Component
 function FadeIn({ children, direction = "up", delay = 0 }) {
   const [isVisible, setVisible] = useState(false);
   const domRef = useRef();
@@ -33,7 +32,8 @@ function FadeIn({ children, direction = "up", delay = 0 }) {
         transform: isVisible ? 'translate(0, 0)' : transformStart,
         transition: `opacity 0.8s ease-out ${delay}s, transform 0.8s ease-out ${delay}s`,
         willChange: 'opacity, transform',
-        width: '100%'
+        width: '100%',
+        height: '100%'
       }}
     >
       {children}
@@ -42,85 +42,84 @@ function FadeIn({ children, direction = "up", delay = 0 }) {
 }
 
 export default function DiningPage() {
-  // --- DYNAMIC SIZE DETECTION ---
   const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
     const handleResize = () => setIsMobile(window.innerWidth < 768);
-    handleResize(); // Set initial value
+    handleResize();
     window.addEventListener('resize', handleResize);
     return () => window.removeEventListener('resize', handleResize);
   }, []);
 
   return (
-    <main style={{ backgroundColor: '#FDFBF7', color: '#2C3A47', fontFamily: 'var(--font-montserrat), sans-serif', overflowX: 'hidden' }}>
+    <main style={{ backgroundColor: '#FDFBF7', color: '#2C3A47', fontFamily: 'var(--font-montserrat), sans-serif', minHeight: '100vh' }}>
       
-      {/* ORIGINAL SOLID HERO SECTION WITH DYNAMIC PADDING/FONTS */}
+      {/* ELEGANT HEADER SECTION */}
       <section style={{ 
         backgroundColor: '#1A2B34', 
         color: '#FDFBF7', 
-        padding: isMobile ? '120px 20px 80px' : '180px 20px 120px', 
+        padding: isMobile ? '120px 20px 80px' : '160px 20px 100px', 
         textAlign: 'center',
         borderBottom: '8px solid #D4AF37'
       }}>
-        <div style={{ maxWidth: '800px', margin: '0 auto' }}>
-          <FadeIn direction="up">
-            <h1 style={{ fontFamily: 'var(--font-cormorant), serif', fontSize: isMobile ? '3.5rem' : '4.5rem', fontWeight: '600', marginBottom: '24px', letterSpacing: '-1px' }}>
-              Culinary Experience
-            </h1>
-            <p style={{ fontSize: isMobile ? '1.1rem' : '1.25rem', lineHeight: '1.8', opacity: 0.9, fontWeight: '300' }}>
-              Immerse yourself in authentic Wahati flavors, slow-cooked traditions, and the legendary hospitality of the desert.
-            </p>
+        <FadeIn direction="up">
+          <h1 style={{ fontFamily: 'var(--font-cormorant), serif', fontSize: isMobile ? '2.8rem' : '4rem', fontWeight: '600', letterSpacing: '-1px' }}>
+            Restaurants and Coffee Shop
+          </h1>
+        </FadeIn>
+      </section>
+
+      {/* SPLIT CONTENT CARDS SECTION */}
+      <section style={{ 
+        padding: isMobile ? '60px 20px' : '100px 20px', 
+        maxWidth: '1200px', 
+        margin: '0 auto', 
+        display: 'flex', 
+        flexDirection: isMobile ? 'column' : 'row', 
+        gap: '40px' 
+      }}>
+        
+        {/* Main Restaurant Card */}
+        <div style={{ flex: 1, display: 'flex' }}>
+          <FadeIn direction="up" delay={0.2}>
+            <div style={{ 
+              backgroundColor: '#FFF', 
+              padding: isMobile ? '40px 30px' : '60px 50px', 
+              borderRadius: '12px', 
+              boxShadow: '0 15px 35px rgba(0,0,0,0.04)',
+              borderTop: '4px solid #1A2B34',
+              height: '100%',
+              display: 'flex',
+              alignItems: 'center'
+            }}>
+              <p style={{ fontSize: isMobile ? '1.1rem' : '1.3rem', lineHeight: '2.2', color: '#4A5568', textAlign: 'center' }}>
+                The main restaurant (Indoor and outdoor) is fully equipped with full board and catering facilities, overlooking the oasis and the mountains
+              </p>
+            </div>
           </FadeIn>
         </div>
-      </section>
 
-      {/* SECTION 1 WITH DYNAMIC LAYOUT & ASPECT RATIO */}
-      <section style={{ padding: isMobile ? '60px 20px' : '100px 20px', position: 'relative' }}>
-        <div style={{ maxWidth: '1200px', margin: '0 auto', display: 'flex', gap: isMobile ? '40px' : '60px', flexDirection: isMobile ? 'column' : 'row', alignItems: 'center' }}>
-          <div style={{ flex: '1 1 100%' }}>
-            <FadeIn direction="left">
-              <h2 style={{ fontFamily: 'var(--font-cormorant), serif', fontSize: isMobile ? '2.5rem' : '3rem', color: '#1A2B34', marginBottom: '20px' }}>The Zarab Feast</h2>
-              <p style={{ lineHeight: '1.9', fontSize: '1.1rem', color: '#4A5568', marginBottom: '24px' }}>
-                Experience the ancient Bedouin art of Zarab. Meats and freshly harvested local vegetables are slow-cooked for hours under the desert sand on hot coals. The result is unparalleled tenderness and a deep, smoky flavor that cannot be replicated in a modern kitchen.
+        {/* Coffee Shop Card */}
+        <div style={{ flex: 1, display: 'flex' }}>
+          <FadeIn direction="up" delay={0.4}>
+            <div style={{ 
+              backgroundColor: '#FFF', 
+              padding: isMobile ? '40px 30px' : '60px 50px', 
+              borderRadius: '12px', 
+              boxShadow: '0 15px 35px rgba(0,0,0,0.04)',
+              borderTop: '4px solid #D4AF37',
+              height: '100%',
+              display: 'flex',
+              alignItems: 'center'
+            }}>
+              <p style={{ fontSize: isMobile ? '1.1rem' : '1.3rem', lineHeight: '2.2', color: '#4A5568', textAlign: 'center' }}>
+                The Coffee shop (Indoor and outdoor) serve all kinds of Egyptian and soft drinks
               </p>
-            </FadeIn>
-          </div>
-          <div style={{ flex: '1 1 100%', position: 'relative', width: '100%' }}>
-            <FadeIn direction="right">
-              <img 
-                src="/images/dining-zarab.jpg" 
-                alt="Traditional Zarab Cooking" 
-                style={{ width: '100%', aspectRatio: isMobile ? '4/3' : '16/9', objectFit: 'cover', borderRadius: '12px', boxShadow: '0 20px 40px rgba(0,0,0,0.08)' }} 
-              />
-            </FadeIn>
-          </div>
+            </div>
+          </FadeIn>
         </div>
-      </section>
 
-      {/* SECTION 2 WITH DYNAMIC LAYOUT & ASPECT RATIO */}
-      <section style={{ backgroundColor: '#1A2B34', color: '#FDFBF7', padding: isMobile ? '60px 20px' : '100px 20px' }}>
-        <div style={{ maxWidth: '1200px', margin: '0 auto', display: 'flex', gap: isMobile ? '40px' : '80px', flexDirection: isMobile ? 'column' : 'row-reverse', alignItems: 'center' }}>
-          <div style={{ flex: '1 1 100%' }}>
-            <FadeIn direction="right">
-              <h2 style={{ fontFamily: 'var(--font-cormorant), serif', fontSize: isMobile ? '2.5rem' : '3rem', color: '#D4AF37', marginBottom: '20px' }}>The Wahati Tea Ritual</h2>
-              <p style={{ lineHeight: '1.9', fontSize: '1.1rem', color: '#E2E8F0', marginBottom: '24px' }}>
-                No day in the oasis is complete without it. Boiled continuously over an open wood fire and infused with fresh mint or lemongrass, our tea is poured with precision to create its signature froth. It is a symbol of welcome, conversation, and peace.
-              </p>
-            </FadeIn>
-          </div>
-          <div style={{ flex: '1 1 100%', position: 'relative', width: '100%' }}>
-            <FadeIn direction="left">
-              <img 
-                src="/images/dining-tea.jpg" 
-                alt="Bedouin Tea Pouring" 
-                style={{ width: '100%', aspectRatio: isMobile ? '4/3' : '16/9', objectFit: 'cover', borderRadius: '12px', boxShadow: '0 25px 50px rgba(0,0,0,0.3)' }} 
-              />
-            </FadeIn>
-          </div>
-        </div>
       </section>
-
     </main>
   );
 }
