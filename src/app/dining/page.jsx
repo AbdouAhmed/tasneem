@@ -90,8 +90,19 @@ export default function DiningPage() {
               borderTop: '4px solid #1A2B34',
               height: '100%',
               display: 'flex',
+              flexDirection: 'column',
+              justifyContent: 'center',
               alignItems: 'center'
             }}>
+              <h2 style={{ 
+                fontFamily: 'var(--font-cormorant), serif', 
+                fontSize: isMobile ? '2rem' : '2.5rem', 
+                color: '#1A2B34', 
+                marginBottom: '20px',
+                textAlign: 'center'
+              }}>
+                The Main Restaurant
+              </h2>
               <p style={{ fontSize: isMobile ? '1.1rem' : '1.3rem', lineHeight: '2.2', color: '#4A5568', textAlign: 'center' }}>
                 The main restaurant (Indoor and outdoor) is fully equipped with full board and catering facilities, overlooking the oasis and the mountains
               </p>
@@ -110,8 +121,19 @@ export default function DiningPage() {
               borderTop: '4px solid #D4AF37',
               height: '100%',
               display: 'flex',
+              flexDirection: 'column',
+              justifyContent: 'center',
               alignItems: 'center'
             }}>
+              <h2 style={{ 
+                fontFamily: 'var(--font-cormorant), serif', 
+                fontSize: isMobile ? '2rem' : '2.5rem', 
+                color: '#D4AF37', 
+                marginBottom: '20px',
+                textAlign: 'center'
+              }}>
+                The Coffee Shop
+              </h2>
               <p style={{ fontSize: isMobile ? '1.1rem' : '1.3rem', lineHeight: '2.2', color: '#4A5568', textAlign: 'center' }}>
                 The Coffee shop (Indoor and outdoor) serve all kinds of Egyptian and soft drinks
               </p>
