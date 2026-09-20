@@ -79,6 +79,15 @@ export default function RoomsPage() {
             border: '1px solid #E2E8F0',
             textAlign: 'center'
           }}>
+            <h2 style={{ 
+              fontFamily: 'var(--font-cormorant), serif', 
+              fontSize: isMobile ? '2.2rem' : '2.8rem', 
+              color: '#1A2B34', 
+              marginBottom: '24px' 
+            }}>
+              Bedrooms
+            </h2>
+            
             <p style={{ 
               fontSize: isMobile ? '1.1rem' : '1.3rem', 
               lineHeight: '2.2', 
